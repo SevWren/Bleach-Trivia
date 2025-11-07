@@ -1,0 +1,72 @@
+{
+  "short": [
+    {
+      "name": "Gabe",
+      "score": 4,
+      "total": 5
+    },
+    {
+      "name": "Mike",
+      "score": 4,
+      "total": 5
+    },
+    {
+      "name": "Gabe",
+      "score": 4,
+      "total": 5
+    },
+    {
+      "name": "Gabe",
+      "score": 2,
+      "total": 5
+    }
+  ],
+  "medium": [],
+  "long": [],
+  "top_scores": [
+    {
+      "name": "Gabe",
+      "score": 4,
+      "total": 5,
+      "mode": "short"
+    },
+    {
+      "name": "Mike",
+      "score": 4,
+      "total": 5,
+      "mode": "short"
+    },
+    {
+      "name": "Gabe",
+      "score": 4,
+      "total": 5,
+      "mode": "short"
+    },
+    {
+      "name": "Gabe",
+      "score": 2,
+      "total": 5,
+      "mode": "short"
+    }
+  ],
+  "player_data": {
+    "Mike": {
+      "answered_questions": [
+        "5",
+        "65",
+        "53",
+        "93",
+        "60"
+      ]
+    },
+    "Gabe": {
+      "answered_questions": [
+        "93",
+        "98",
+        "48",
+        "73",
+        "81"
+      ]
+    }
+  }
+}
