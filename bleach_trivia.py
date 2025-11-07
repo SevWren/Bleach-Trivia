@@ -8,6 +8,8 @@ Players can test their knowledge with different game modes and track their score
 import json
 import random
 import os
+import sys
+from pathlib import Path
 
 class BleachTriviaGame:
     """
@@ -29,6 +31,33 @@ class BleachTriviaGame:
         self.player_name = ""
         self.current_score = 0
 
+    def get_base_path(self):
+        """Get the base path for file operations, works with PyInstaller"""
+        if getattr(sys, 'frozen', False):
+            # If the application is run as a bundle, the PyInstaller bootloader
+            # extends the sys module by a flag frozen=True and sets the app 
+            # path into variable _MEIPASS'.
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.dirname(os.path.abspath(__file__))
+        return base_path
+
+    def get_data_path(self, filename):
+        """Get the full path to a data file"""
+        # First try the current working directory
+        cwd_path = Path(filename)
+        if cwd_path.exists():
+            return str(cwd_path)
+            
+        # Then try the application directory
+        base_path = self.get_base_path()
+        app_path = Path(base_path) / filename
+        if app_path.exists():
+            return str(app_path)
+            
+        # If not found, return the original filename (will raise FileNotFoundError)
+        return filename
+
     def load_questions(self):
         """
         Load questions from the questions.json file.
@@ -40,7 +69,8 @@ class BleachTriviaGame:
             FileNotFoundError: If questions.json is not found.
             json.JSONDecodeError: If questions.json contains invalid JSON.
         """
-        with open('questions.json', 'r', encoding='utf-8') as f:
+        questions_path = self.get_data_path('questions.json')
+        with open(questions_path, 'r', encoding='utf-8') as f:
             return json.load(f)
 
     def load_answers(self):
@@ -54,7 +84,8 @@ class BleachTriviaGame:
             FileNotFoundError: If answers.json is not found.
             json.JSONDecodeError: If answers.json contains invalid JSON.
         """
-        with open('answers.json', 'r', encoding='utf-8') as f:
+        answers_path = self.get_data_path('answers.json')
+        with open(answers_path, 'r', encoding='utf-8') as f:
             return json.load(f)
 
     def load_leaderboard(self):
@@ -98,14 +129,16 @@ class BleachTriviaGame:
         }
 
     def save_leaderboard(self):
-        """
-        Save the current leaderboard to leaderboard.json.
-        
-        The leaderboard is saved with proper indentation and UTF-8 encoding.
-        Non-ASCII characters are preserved.
-        """
-        with open('leaderboard.json', 'w', encoding='utf-8') as f:
-            json.dump(self.leaderboard, f, indent=2, ensure_ascii=False)
+        """Save the leaderboard to leaderboard.json"""
+        try:
+            # First try saving in the application directory
+            leaderboard_path = self.get_data_path('leaderboard.json')
+            with open(leaderboard_path, 'w', encoding='utf-8') as f:
+                json.dump(self.leaderboard, f, indent=4)
+        except (IOError, OSError):
+            # If that fails, try saving in the current working directory
+            with open('leaderboard.json', 'w', encoding='utf-8') as f:
+                json.dump(self.leaderboard, f, indent=4)
 
     def get_question(self, index):
         """

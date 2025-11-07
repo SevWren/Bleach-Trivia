@@ -1,78 +1,111 @@
 {
-  "short": [
-    {
-      "name": "Gabe",
-      "score": 4,
-      "total": 5
-    },
-    {
-      "name": "Mike",
-      "score": 4,
-      "total": 5
-    },
-    {
-      "name": "Gabe",
-      "score": 4,
-      "total": 5
-    },
-    {
-      "name": "Gabe",
-      "score": 2,
-      "total": 5
-    },
-    {
-      "name": "Mike",
-      "score": 2,
-      "total": 5
-    },
-    {
-      "name": "Gabe",
-      "score": 2,
-      "total": 5
+    "short": [
+        {
+            "name": "player123",
+            "score": 5,
+            "total": 5
+        },
+        {
+            "name": "trivia_master",
+            "score": 4,
+            "total": 5
+        },
+        {
+            "name": "bleach_fan_2023",
+            "score": 4,
+            "total": 5
+        },
+        {
+            "name": "Test Player",
+            "score": 1,
+            "total": 5
+        },
+        {
+            "name": "Test Player",
+            "score": 1,
+            "total": 5
+        }
+    ],
+    "medium": [
+        {
+            "name": "quiz_king",
+            "score": 19,
+            "total": 20
+        },
+        {
+            "name": "anime_lover",
+            "score": 18,
+            "total": 20
+        },
+        {
+            "name": "soul_reaper_42",
+            "score": 17,
+            "total": 20
+        }
+    ],
+    "long": [
+        {
+            "name": "gamer_pro",
+            "score": 48,
+            "total": 50
+        },
+        {
+            "name": "trivia_champ",
+            "score": 47,
+            "total": 50
+        },
+        {
+            "name": "quiz_whiz",
+            "score": 45,
+            "total": 50
+        }
+    ],
+    "top_scores": [
+        {
+            "name": "gamer_pro",
+            "score": 48,
+            "total": 50,
+            "mode": "long"
+        },
+        {
+            "name": "quiz_king",
+            "score": 19,
+            "total": 20,
+            "mode": "medium"
+        },
+        {
+            "name": "trivia_champ",
+            "score": 47,
+            "total": 50,
+            "mode": "long"
+        },
+        {
+            "name": "Test Player",
+            "score": 1,
+            "total": 5,
+            "mode": "short"
+        },
+        {
+            "name": "Test Player",
+            "score": 1,
+            "total": 5,
+            "mode": "short"
+        }
+    ],
+    "player_data": {
+        "Test Player": {
+            "answered_questions": [
+                "55",
+                "38",
+                "75",
+                "19",
+                "33",
+                "95",
+                "83",
+                "62",
+                "36",
+                "20"
+            ]
+        }
     }
-  ],
-  "medium": [
-    {
-      "name": "Mike",
-      "score": 4,
-      "total": 20
-    }
-  ],
-  "long": [],
-  "top_scores": [
-    {
-      "name": "Gabe",
-      "score": 4,
-      "total": 5,
-      "mode": "short"
-    },
-    {
-      "name": "Mike",
-      "score": 4,
-      "total": 5,
-      "mode": "short"
-    }
-  ],
-  "player_data": {
-    "Mike": {
-      "answered_questions": [
-        "97",
-        "1",
-        "39",
-        "15",
-        "5",
-        "60",
-        "86"
-      ]
-    },
-    "Gabe": {
-      "answered_questions": [
-        "6",
-        "73",
-        "93",
-        "63",
-        "98"
-      ]
-    }
-  }
 }

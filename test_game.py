@@ -14,7 +14,8 @@ def test_game():
         'Test Player',  # Player name
         '1',           # Choose short game
         'A', 'B', 'C', 'D', 'A',  # Answers to 5 questions
-        'n'            # Don't play again
+        'n',           # Don't play again
+        '5'            # Exit the game
     ]
     
     with patch('builtins.input', side_effect=test_inputs):
